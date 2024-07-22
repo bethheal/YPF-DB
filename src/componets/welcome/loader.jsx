@@ -1,13 +1,17 @@
-import { SunspotLoader } from "react-awesome-loaders";
-export const LoadingAnimation = () => {
+import { RotatingSquare } from 'react-loader-spinner'
+
+const WelcomeLoader = () => {
   return (
-    <>
-      <SunspotLoader
-        gradientColors={["#6366F1","#E0E7FF"]}
-        shadowColor={"#3730A3"}
-        // desktopSize={"128px"}
-        mobileSize={"100px"}
-      />
-    </>
-  );
-};
+
+    <RotatingSquare
+      visible={true}
+      height="100"
+      width="100"
+      color="#FFD12D"
+      ariaLabel="rotating-square-loading"
+      wrapperStyle={{}}
+      wrapperClass=""
+      />)  
+}
+
+export default WelcomeLoader

@@ -1,14 +1,15 @@
+import { RotatingSquare } from 'react-loader-spinner'
 import { logo } from '../assets'
-import { LoadingAnimation } from '../componets/welcome/loader'
+import WelcomeLoader from '../componets/welcome/loader'
 
 const WelcomePage = () => {
   return (
     <div>
-      <div className="flex h-screen bg-[#00016A] justify-center items-center align-items-center ">
+      <div className="flex flex-col gap-20 h-screen bg-[#00016A] justify-center items-center align-items-center ">
       <img src={logo} alt="Logo"  
      />
      <span>
-      <LoadingAnimation/>
+      <WelcomeLoader/>
      </span>
       </div>
       
