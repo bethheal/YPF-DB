@@ -1,0 +1,11 @@
+#signupContainer {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s, max-height 0.5s;
+}
+
+#signupContainer.show {
+    opacity: 1;
+    max-height: 200px; /* Adjust this value if you have more fields */
+}
