@@ -1,9 +1,9 @@
-import React from 'react'
+// import React from 'react'
 
-const PagesLayout = () => {
-  return (
-    <div>PagesLayout</div>
-  )
-}
+// const PagesLayout = () => {
+//   return (
+//     <div>PagesLayout</div>
+//   )
+// }
 
-export default PagesLayout
+// export default PagesLayout

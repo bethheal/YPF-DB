@@ -1,8 +1,8 @@
 import React from 'react'
-
+import "../../App.css"
 const Settings = () => {
   return (
-    <div>Settings</div>
+    <div className='flex'>Settings</div>
   )
 }
 

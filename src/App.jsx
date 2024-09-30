@@ -4,7 +4,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import LoginPage from './pages/auth/loginPage'
 import SignupPage from './pages/auth/signupPage'
 import Dashboard from './pages/dashboard'
-import AddMember from './pages/dashboard/addMember'
 import Home from './pages/dashboard/home'
 import ViewMember from './pages/dashboard/viewMember'
 import Member from './pages/dashboard/member'
@@ -12,6 +11,12 @@ import ViewMembers from './pages/dashboard/viewMember'
 import DormantMembers from './pages/dashboard/dormantMember'
 import Profile from './pages/dashboard/profile'
 import Settings from './pages/dashboard/settings'
+import Help from './pages/dashboard/help'
+import Layout from './componets/dashboard'
+import AddMember from './pages/dashboard/addMember/addMember'
+import Attendance from './pages/dashboard/attendance'
+
+const App = () => {
 
 const router = createBrowserRouter([
   {
@@ -28,7 +33,7 @@ const router = createBrowserRouter([
   },
   {
     path:"dashboard",
-    element:<Dashboard/>,
+    element: <Layout/>,
     children: [
 
       {
@@ -39,6 +44,10 @@ const router = createBrowserRouter([
       {
         path:"add-member",
         element: <AddMember/>
+      },
+      {
+        path:"attendance",
+        element: <Attendance/>
       },
       {
         path:"members",
@@ -56,18 +65,17 @@ const router = createBrowserRouter([
         path:"settings",
         element: <Settings/>
       },
+      {
+        path:"help",
+        element: <Help/>
+      },
      
     ]
   }
  
 ])
+return <RouterProvider router={router}/>
 
-function App() {
-  return (
-   <>
-   <RouterProvider router ={router}/>
-   </>
-  )
-}
+  };
 
 export default App

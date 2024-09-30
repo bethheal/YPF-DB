@@ -1,9 +1,11 @@
-import React from 'react'
-import "../../App.css"
-import { useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
+import {  useLocation, useNavigate } from "react-router-dom";
 import { ArrowCircleLeft } from '@mui/icons-material';
-import { logo } from '../../assets';
-const DormantMembers = () => {
+import "../../../App.css";
+import AddMemeberForm from './addMemeberForm';
+import { logo } from '../../../assets';
+
+const AddMember = () => {
   const location = useLocation();
   const { state } = location;
   const navigate = useNavigate();
@@ -17,10 +19,10 @@ const DormantMembers = () => {
 
           </button>
           <img src={logo} alt="logo" style={{ width: '50px', height: 'auto' }} />
-          <h3 className="text-lg font-semibold">DORMANT MEMBERS</h3>
+          <h3 className="text-lg font-semibold">ADD MEMBER</h3>
 
         </div>
-       
+       <AddMemeberForm/>
 
 
 
@@ -37,4 +39,4 @@ const DormantMembers = () => {
   );
 }
 
-export default DormantMembers
+export default AddMember;

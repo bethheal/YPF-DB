@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { googleIcon, logo } from "../../assets";
 import { Card } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
+import AnimatePage from "./animatePage";
 
 const LogInForm = () => {
   const navigate = useNavigate();
@@ -46,6 +47,7 @@ const LogInForm = () => {
                 className="mt-2"
                 onClick={() => navigate("/signup")}
               >
+                <AnimatePage/>
                 <span className="text-btnColor text-sm">SIGN UP</span>
               </button>
               <div className="mt-5">
