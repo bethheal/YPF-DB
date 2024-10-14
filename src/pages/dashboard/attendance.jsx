@@ -8,11 +8,10 @@ const Attendance = () => {
   const location = useLocation();
   const { state } = location;
   const navigate = useNavigate();
-  
+
   const [selectedMonth, setSelectedMonth] = useState("January");
   const [selectedYear, setSelectedYear] = useState("2024");
 
-  // Sample attendance data (You can dynamically load this as needed)
   const attendanceData = [
     { id: 1, name: "Beth Heal", number: "0554855849", weeks: [true, false, true, true, false] },
     { id: 2, name: "Bob Boby", number: "0554855849", weeks: [true, true, true, false, false] },
@@ -41,8 +40,8 @@ const Attendance = () => {
   };
 
   return (
-    <div className={`card ${state?.expanded ? "expanded" : ""}`}>
-      <div className="relative h-full overflow-auto">
+    <div className={`card flex flex-col h-full ${state?.expanded ? "expanded" : ""}`}>
+      <div className="relative h-full overflow-auto flex flex-col justify-between">
         <div className="sticky justify-between top-0 left-0 w-full h-20 flex items-center p-4 bg-white text-[#04133F] z-10">
           <button onClick={() => { navigate('/dashboard'); }}>
             <ArrowCircleLeft className="mr-2" />
@@ -51,39 +50,8 @@ const Attendance = () => {
           <h3 className="text-lg font-semibold">ATTENDANCE</h3>
         </div>
 
-        <div className="bg-white h-3/4 m-10">
-          <div className="flex justify-between items-center mb-4">
-            {/* Month and Year dropdown */}
-            <div className="flex space-x-4">
-              <select
-                value={selectedMonth}
-                onChange={(e) => setSelectedMonth(e.target.value)}
-                className="border p-2 rounded"
-              >
-                {months.map(month => (
-                  <option key={month} value={month}>{month}</option>
-                ))}
-              </select>
-              <select
-                value={selectedYear}
-                onChange={(e) => setSelectedYear(e.target.value)}
-                className="border p-2 rounded"
-              >
-                {years.map(year => (
-                  <option key={year} value={year}>{year}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Overview and Download Buttons */}
-            <div className="flex space-x-4">
-              <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={() => alert('Show overview')}>Overview</button>
-              <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={() => handleDownload('excel')}>Download Excel</button>
-              <button className="bg-yellow-500 text-white px-4 py-2 rounded" onClick={() => handleDownload('text')}>Download Text</button>
-            </div>
-          </div>
-
-          {/* Attendance Table */}
+        {/* Attendance Table */}
+        <div className="bg-white flex-grow m-10">
           <div className="overflow-x-auto">
             <table className="min-w-full border border-gray-300">
               <thead>
@@ -119,6 +87,40 @@ const Attendance = () => {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+
+        {/* Controls at the Bottom */}
+        <div className="bg-white p-4">
+          <div className="flex justify-between items-center">
+            {/* Month and Year dropdown */}
+            <div className="flex space-x-4">
+              <select
+                value={selectedMonth}
+                onChange={(e) => setSelectedMonth(e.target.value)}
+                className="border p-2 rounded"
+              >
+                {months.map(month => (
+                  <option key={month} value={month}>{month}</option>
+                ))}
+              </select>
+              <select
+                value={selectedYear}
+                onChange={(e) => setSelectedYear(e.target.value)}
+                className="border p-2 rounded"
+              >
+                {years.map(year => (
+                  <option key={year} value={year}>{year}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Download and Overview Buttons */}
+            <div className="flex space-x-4">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={() => alert('Show overview')}>Overview</button>
+              <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={() => handleDownload('excel')}>Download Excel</button>
+              <button className="bg-yellow-500 text-white px-4 py-2 rounded" onClick={() => handleDownload('text')}>Download Text</button>
+            </div>
           </div>
         </div>
       </div>
